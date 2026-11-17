@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "PeriyodikTablo",
+    "name": "Element Atlası",
     "slug": "PeriyodikTablo",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,15 +10,19 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      }
+      "icon": "./assets/icon.png",
+      "package": "com.bxmrad.elementatlasi"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "76267f86-fbd3-40d2-892c-f05d0add2e84"
+      }
+    },
+    "plugins": [
+      "@react-native-vector-icons/ionicons"
+    ]
   }
 }
