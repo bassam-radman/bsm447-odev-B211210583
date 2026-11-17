@@ -64,9 +64,14 @@ telefonun yerel hafızasında saklanmaktadır.
 
 APK derlemesi tamamlandığında eklenecek.
 
+
 ## Uygulama Tanıtım Videosu
 
-En fazla 1 dakikalık ekran kaydı eklenecek.
+Uygulamanın üç ekranını ve temel özelliklerini
+gösteren 37 saniyelik tanıtım videosu.
+
+[Tanıtım Videosunu İzle](videos/tanitim.mp4)
+
 
 ## GitHub
 
