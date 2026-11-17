@@ -60,9 +60,12 @@ telefonun yerel hafızasında saklanmaktadır.
 ![Kaydedilenler](screenshots/kaydedilenler.png)
 
 
-## APK Bağlantısı
+## Android APK
 
-APK derlemesi tamamlandığında eklenecek.
+Element Atlası uygulamasının güncel Android APK sürümü:
+
+[APK Dosyasını İndir](https://expo.dev/accounts/bxmrad/projects/PeriyodikTablo/builds/70e26134-0e61-4835-a942-a601c0bf78b7)
+
 
 
 ## Uygulama Tanıtım Videosu
