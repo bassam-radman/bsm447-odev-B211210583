@@ -150,12 +150,12 @@ export default function ListScreen({ navigation }) {
             keyExtractor={(item) =>
               item.number.toString()
             }
-            contentContainerStyle={styles.list}
             ListEmptyComponent={
-              <Text style={styles.emptyText}>
-                Sonuç bulunamadı.
-              </Text>
-            }
+  <Text style={styles.emptyText}>
+    Element bulunamadı.{'\n'}
+    Element adı, sembolü veya atom numarasıyla tekrar arayın.
+  </Text>
+}
           />
         </>
       )}
