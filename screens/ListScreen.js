@@ -27,9 +27,18 @@ export default function ListScreen({ navigation }) {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
 
+const [error, setError] = useState(false);
+const [retryCount, setRetryCount] = useState(0);
+
+
   // API'den elementleri çekme
-  useEffect(() => {
-    fetch(
+ 
+useEffect(() => {
+  setLoading(true);
+  setError(false);
+
+  fetch(
+
       'https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json'
     )
       .then((response) => {
@@ -47,14 +56,16 @@ export default function ListScreen({ navigation }) {
 
         setElements(filtered);
       })
-      .catch((error) => {
-        console.log('Hata:', error);
-      })
+      
+.catch((error) => {
+  console.log('Hata:', error);
+  setError(true);
+})
+
       .finally(() => {
         setLoading(false);
       });
-  }, []);
-
+ }, [retryCount]);
   // Element arama
   const filteredElements = elements.filter((element) => {
     const text = search.toLowerCase().trim();
@@ -133,12 +144,35 @@ export default function ListScreen({ navigation }) {
         autoCapitalize="none"
       />
 
-      {loading ? (
-        <ActivityIndicator
-          size="large"
-          color="#173B65"
-        />
-      ) : (
+      
+{loading ? (
+  <ActivityIndicator
+    size="large"
+    color="#173B65"
+  />
+) : error ? (
+  <View style={{ alignItems: 'center', marginTop: 30 }}>
+    <Text style={styles.emptyText}>
+      İnternet bağlantısı kurulamadı.
+    </Text>
+
+    <TouchableOpacity
+      style={{
+        backgroundColor: '#173B65',
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        borderRadius: 10,
+        marginTop: 18,
+      }}
+      onPress={() => setRetryCount((count) => count + 1)}
+    >
+      <Text style={{ color: '#FFFFFF', fontWeight: 'bold' }}>
+        Yeniden Dene
+      </Text>
+    </TouchableOpacity>
+  </View>
+) : (
+
         <>
           <Text style={styles.count}>
             {filteredElements.length} element bulundu
@@ -150,12 +184,12 @@ export default function ListScreen({ navigation }) {
             keyExtractor={(item) =>
               item.number.toString()
             }
+            contentContainerStyle={styles.list}
             ListEmptyComponent={
-  <Text style={styles.emptyText}>
-    Element bulunamadı.{'\n'}
-    Element adı, sembolü veya atom numarasıyla tekrar arayın.
-  </Text>
-}
+              <Text style={styles.emptyText}>
+                Sonuç bulunamadı.
+              </Text>
+            }
           />
         </>
       )}
