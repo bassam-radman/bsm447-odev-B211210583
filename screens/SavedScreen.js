@@ -134,9 +134,14 @@ const renderElement = ({ item }) => {
             }
             contentContainerStyle={styles.list}
             ListEmptyComponent={
-              <Text style={styles.emptyText}>
-                Henüz kaydedilen element yok.
-              </Text>
+              
+<Text style={styles.emptyText}>
+  Henüz kaydedilen element yok.{"\n"}
+  {"\n"}
+  Elementleri detay ekranındaki Kaydet
+  butonuyla favorilerinize ekleyebilirsiniz.
+</Text>
+
             }
           />
         </>
