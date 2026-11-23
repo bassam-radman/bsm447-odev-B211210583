@@ -22,6 +22,17 @@ const categoryColors = {
   'noble gas': '#BE185D',
 };
 
+const categoryLabels = {
+  'alkali metal': 'Alkali Metal',
+  'alkaline earth metal': 'Toprak Alkali Metal',
+  'transition metal': 'Geçiş Metali',
+  'post-transition metal': 'Geçiş Sonrası Metal',
+  'metalloid': 'Yarı Metal',
+  'diatomic nonmetal': 'İki Atomlu Ametal',
+  'polyatomic nonmetal': 'Çok Atomlu Ametal',
+  'noble gas': 'Soygaz',
+};
+
 export default function ListScreen({ navigation }) {
   const [elements, setElements] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -135,6 +146,67 @@ useEffect(() => {
       <Text style={styles.subtitle}>
         4. ve 5. Periyot Elementleri
       </Text>
+
+<View
+  style={{
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 12,
+    marginTop: 15,
+  }}
+>
+  <Text
+    style={{
+      fontSize: 15,
+      fontWeight: 'bold',
+      color: '#173B65',
+      marginBottom: 10,
+    }}
+  >
+    Element Kategorileri
+  </Text>
+
+  <View
+    style={{
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+    }}
+  >
+    {Object.entries(categoryColors).map(([category, color]) => (
+      <View
+        key={category}
+        style={{
+          width: '49%',
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginBottom: 9,
+        }}
+      >
+        <View
+          style={{
+            width: 12,
+            height: 12,
+            borderRadius: 3,
+            backgroundColor: color,
+            marginRight: 7,
+          }}
+        />
+
+        <Text
+          style={{
+            fontSize: 11,
+            color: '#334155',
+            flex: 1,
+          }}
+        >
+          {categoryLabels[category]}
+        </Text>
+      </View>
+    ))}
+  </View>
+</View>
+
 
       <TextInput
         style={styles.searchInput}
