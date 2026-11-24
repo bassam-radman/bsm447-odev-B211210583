@@ -126,9 +126,11 @@ useEffect(() => {
             {item.period}. Periyot
           </Text>
 
-          <Text style={styles.categoryName}>
-            {item.category}
-          </Text>
+          
+<Text style={styles.categoryName}>
+  {categoryLabels[item.category] || item.category}
+</Text>
+
         </View>
       </TouchableOpacity>
     );
