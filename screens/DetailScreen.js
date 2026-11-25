@@ -24,6 +24,17 @@ const categoryColors = {
   'noble gas': '#BE185D',
 };
 
+const categoryLabels = {
+  'alkali metal': 'Alkali Metal',
+  'alkaline earth metal': 'Toprak Alkali Metal',
+  'transition metal': 'Geçiş Metali',
+  'post-transition metal': 'Geçiş Sonrası Metal',
+  'metalloid': 'Yarı Metal',
+  'diatomic nonmetal': 'İki Atomlu Ametal',
+  'polyatomic nonmetal': 'Çok Atomlu Ametal',
+  'noble gas': 'Soygaz',
+};
+
 export default function DetailScreen({ route }) {
   const element = route?.params?.element;
 
@@ -145,9 +156,11 @@ const toggleSave = async () => {
           { backgroundColor: categoryColor },
         ]}
       >
-        <Text style={styles.categoryText}>
-          {element.category}
-        </Text>
+        
+<Text style={styles.categoryText}>
+  {categoryLabels[element.category] || element.category}
+</Text>
+
       </View>
 
       <View style={styles.card}>
